@@ -15,6 +15,7 @@ const fetch = async (event) => {
 }
 
 const reply = (event) => {
+  console.log('傳送人流資訊中')
   const placesInfo = ['游泳池', '健身房']
   const bubbles = []
   for (const i in peoples) {
