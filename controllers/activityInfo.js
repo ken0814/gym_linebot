@@ -4,7 +4,7 @@ import bubble from '../template/activity_bubble_template.js'
 
 const activities = []
 
-const fetch = async (event) => {
+const fetch = async () => {
   try {
     const { data } = await axios.get('https://www.ntcslsports.com.tw/')
     const $ = cheerio.load(data)
@@ -16,7 +16,6 @@ const fetch = async (event) => {
         releaseDate: $(this).find('#my-news').text().slice(0, 10)
       })
     })
-    reply(event)
   } catch (error) {
     console.log(error)
   }
