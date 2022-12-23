@@ -8,6 +8,7 @@ const fetch = async (event) => {
   try {
     const { data } = await axios.get(process.env.GYM_API)
     peoples.push(...data.split(','))
+    console.log(peoples)
     reply(event)
   } catch (error) {
     console.log(error)
