@@ -4,17 +4,22 @@ import bubble from '../template/activity_bubble_template.js'
 
 const activities = []
 
-const fetch = async () => {
-  const { data } = await axios.get('https://www.ntcslsports.com.tw/')
-  const $ = cheerio.load(data)
-  $('.ipost').each(function () {
-    activities.push({
-      name: $(this).find('.entry-title').text().replace(/\n/g, '').replace(/\s*/g, ''),
-      img: 'https://www.ntcslsports.com.tw/' + $(this).find('.image_fade').attr('src'),
-      description: $(this).find('.entry-content').text().replace(/\s*/, ''),
-      releaseDate: $(this).find('#my-news').text().slice(0, 10)
+const fetch = async (event) => {
+  try {
+    const { data } = await axios.get('https://www.ntcslsports.com.tw/')
+    const $ = cheerio.load(data)
+    $('.ipost').each(function () {
+      activities.push({
+        name: $(this).find('.entry-title').text().replace(/\n/g, '').replace(/\s*/g, ''),
+        img: 'https://www.ntcslsports.com.tw/' + $(this).find('.image_fade').attr('src'),
+        description: $(this).find('.entry-content').text().replace(/\s*/, ''),
+        releaseDate: $(this).find('#my-news').text().slice(0, 10)
+      })
     })
-  })
+    reply(event)
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 const reply = (event) => {

@@ -4,10 +4,11 @@ import bubble from '../template/people_bubble_template.js'
 
 const peoples = []
 
-const fetch = async () => {
+const fetch = async (event) => {
   try {
     const { data } = await axios.get(process.env.GYM_API)
     peoples.push(...data.split(','))
+    reply(event)
   } catch (error) {
     console.log(error)
   }
@@ -47,6 +48,5 @@ const reply = (event) => {
 }
 
 export default {
-  fetch,
-  reply
+  fetch
 }
