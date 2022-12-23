@@ -15,22 +15,17 @@ const fetch = async (event) => {
 }
 
 const reply = (event) => {
-  const placesInfo = [
-    {
-      name: '游泳池',
-      imgURL: 'https://www.ntcslsports.com.tw/images/zone/1-2.jpg'
-    },
-    {
-      name: '健身房',
-      imgURL: 'https://www.ntcslsports.com.tw/images/zone/2-4.jpg'
-    }
-  ]
+  const placesInfo = ['游泳池', '健身房']
   const bubbles = []
   for (const i in peoples) {
-    bubble.hero.url = placesInfo[i].imgURL
-    bubble.body.contents[0].text = placesInfo[i].name
-    if (placesInfo[i].name === '游泳池') bubble.body.contents[1].contents[0].contents[0].text = `${peoples[i]} / 容留 250 人`
-    else bubble.body.contents[1].contents[0].contents[0].text = `${peoples[i]} / 容留 90 人`
+    bubble.body.contents[0].text = placesInfo[i]
+    if (placesInfo[i] === '游泳池') {
+      bubble.hero.url = 'https://www.ntcslsports.com.tw/images/zone/1-2.jpg'
+      bubble.body.contents[1].contents[0].contents[0].text = `${peoples[i]} / 容留 250 人`
+    } else {
+      bubble.hero.url = 'https://www.ntcslsports.com.tw/images/zone/2-4.jpg'
+      bubble.body.contents[1].contents[0].contents[0].text = `${peoples[i]} / 容留 90 人`
+    }
     bubbles.push(JSON.parse(JSON.stringify(bubble)))
   }
   event.reply(
