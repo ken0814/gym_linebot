@@ -2,20 +2,19 @@ import 'dotenv/config'
 import axios from 'axios'
 import bubble from '../template/people_bubble_template.js'
 
-const peoples = []
-
 const fetch = async (event) => {
   try {
+    const peoples = []
     const { data } = await axios.get(process.env.GYM_API)
     peoples.push(...data.split(','))
     console.log(peoples)
-    reply(event)
+    reply(event, peoples)
   } catch (error) {
     console.log(error)
   }
 }
 
-const reply = (event) => {
+const reply = (event, peoples) => {
   console.log('傳送人流資訊中')
   const placesInfo = ['游泳池', '健身房']
   const bubbles = []
