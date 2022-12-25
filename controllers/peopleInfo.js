@@ -27,7 +27,7 @@ const reply = (event, peoples) => {
     }]
   const bubbles = []
   for (const i in peoples) {
-    bubble.body.contents[0].text = placesInfo[i]
+    bubble.body.contents[0].text = placesInfo[i].name
     bubble.hero.url = placesInfo[i].imgURL
     if (placesInfo[i].name === '游泳池') bubble.body.contents[1].contents[0].contents[0].text = `${peoples[i]} / 容留 250 人`
     else bubble.body.contents[1].contents[0].contents[0].text = `${peoples[i]} / 容留 90 人`
