@@ -6,7 +6,7 @@ import schedule from 'node-schedule'
 // import menu from './controllers/richMenu.js'
 
 schedule.scheduleJob('0 0 * * *', () => {
-  console.log('抓取活動')
+  console.log('fetch activity')
   activity.fetch()
 })
 
