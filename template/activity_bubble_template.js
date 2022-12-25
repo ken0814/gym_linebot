@@ -42,30 +42,6 @@ export default {
         ]
       },
       {
-        type: 'box',
-        layout: 'vertical',
-        contents: [
-          {
-            type: 'box',
-            layout: 'baseline',
-            spacing: 'sm',
-            contents: [
-              {
-                type: 'text',
-                text: '',
-                weight: 'bold',
-                wrap: true,
-                color: '#545454',
-                size: 'xs',
-                flex: 5
-              }
-            ]
-          }
-        ],
-        height: '200px',
-        maxHeight: '200px'
-      },
-      {
         type: 'button',
         action: {
           type: 'message',
