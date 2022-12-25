@@ -3,6 +3,7 @@ import axios from 'axios'
 import bubble from '../template/people_bubble_template.js'
 
 const fetch = async (event) => {
+  console.log('抓取人流資訊中')
   try {
     const peoples = []
     const { data } = await axios.get(process.env.GYM_API)
