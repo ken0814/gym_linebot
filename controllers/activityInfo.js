@@ -5,6 +5,7 @@ import bubble from '../template/activity_bubble_template.js'
 const activities = []
 
 const fetch = async () => {
+  activities.splice(0, activities.length)
   try {
     const { data } = await axios.get('https://www.ntcslsports.com.tw/')
     const $ = cheerio.load(data)
