@@ -44,7 +44,7 @@ const reply = (event) => {
 }
 
 const replyMore = (event) => {
-  const activityName = event.message.text.slice(2)
+  const activityName = event.message.text.slice(5)
   const activity = []
   for (const i in activities) if (activities[i].name === activityName) activity.push(activities[i])
   event.reply(
