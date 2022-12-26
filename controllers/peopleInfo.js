@@ -11,6 +11,7 @@ const fetch = async (event) => {
     console.log(peoples)
     reply(event, peoples)
   } catch (error) {
+    event.reply('get error')
     console.log(error)
   }
 }
