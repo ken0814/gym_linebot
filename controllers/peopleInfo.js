@@ -33,7 +33,7 @@ const reply = (event, peoples) => {
     bubble.hero.url = placesInfo[i].imgURL
     if (placesInfo[i].name === '游泳池') bubble.body.contents[1].contents[0].contents[0].text = `${peoples[i]} / 容留 250 人`
     else bubble.body.contents[1].contents[0].contents[0].text = `${peoples[i]} / 容留 90 人`
-    bubbles.push(bubble)
+    bubbles.push(JSON.parse(JSON.stringify(bubble)))
   }
   event.reply(
     [
