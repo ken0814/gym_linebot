@@ -29,7 +29,7 @@ const reply = (event) => {
     bubble.body.contents[0].text = activities[i].name
     bubble.body.contents[1].contents[0].contents[0].text = `刊登日: ${activities[i].releaseDate}`
     bubble.body.contents[2].action.text = `前往活動 ${activities[i].name}`
-    bubbles.push(JSON.parse(JSON.stringify(bubble)))
+    bubbles.push(bubble)
   }
   event.reply(
     {
