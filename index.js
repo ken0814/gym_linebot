@@ -3,6 +3,7 @@ import linebot from 'linebot'
 import people from './controllers/peopleInfo.js'
 import activity from './controllers/activityInfo.js'
 import schedule from 'node-schedule'
+import ubike from './controllers/ubike.js'
 // import menu from './controllers/richMenu.js'
 
 schedule.scheduleJob('0 0 * * *', () => {
@@ -24,6 +25,7 @@ bot.on('message', async (event) => {
   else if (event.message.text.includes('前往活動')) activity.replyMore(event)
   else event.reply('逼..逼..機器人看無這指令')
   // menu.replyMenu()
+  ubike.fetch()
 })
 
 bot.listen('/', process.env.PORT || 3000, () => {
