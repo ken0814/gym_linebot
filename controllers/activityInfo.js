@@ -17,6 +17,7 @@ const fetch = async () => {
         releaseDate: $(this).find('#my-news').text().slice(0, 10)
       })
     })
+    console.log('fetch activity')
   } catch (error) {
     console.log(error)
   }

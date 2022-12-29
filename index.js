@@ -8,7 +8,6 @@ import ubike from './controllers/ubike.js'
 
 schedule.scheduleJob('0 * * * *', () => {
   activity.fetch()
-  console.log('fetch activity')
 })
 
 activity.fetch()
