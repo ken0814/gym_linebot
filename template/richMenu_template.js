@@ -11,26 +11,52 @@ export default {
       bounds: {
         x: 0,
         y: 0,
-        width: 1250,
+        width: 625,
         height: 843
       },
       action: {
         type: 'message',
-        label: '目前人流',
-        text: '目前人流'
+        label: '目前人數',
+        text: '目前人數'
       }
     },
     {
       bounds: {
-        x: 1250,
+        x: 625,
         y: 0,
-        width: 1250,
+        width: 625,
         height: 843
       },
       action: {
         type: 'message',
         label: '當前活動',
         text: '當前活動'
+      }
+    },
+    {
+      bounds: {
+        x: 1250,
+        y: 0,
+        width: 625,
+        height: 843
+      },
+      action: {
+        type: 'message',
+        label: 'Youbike',
+        text: 'Youbike'
+      }
+    },
+    {
+      bounds: {
+        x: 1875,
+        y: 0,
+        width: 625,
+        height: 843
+      },
+      action: {
+        type: 'message',
+        label: '聯絡我',
+        text: '聯絡我'
       }
     }
   ]

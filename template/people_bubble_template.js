@@ -34,10 +34,33 @@ export default {
                 weight: 'bold',
                 wrap: true,
                 color: '#545454',
-                size: 'sm',
+                size: 'md',
                 flex: 5
               }
             ]
+          },
+          {
+            type: 'box',
+            layout: 'vertical',
+            margin: 'lg',
+            spacing: 'sm',
+            contents: [
+              {
+                type: 'box',
+                layout: 'vertical',
+                contents: [],
+                height: '15px',
+                width: '20%',
+                background: {
+                  type: 'linearGradient',
+                  angle: '90deg',
+                  startColor: '#f6d365',
+                  endColor: '#fda085'
+                }
+              }
+            ],
+            cornerRadius: '5px',
+            backgroundColor: '#EEEEEE'
           }
         ]
       }

@@ -3,12 +3,11 @@ import axios from 'axios'
 import bubble from '../template/people_bubble_template.js'
 
 const fetch = async (event) => {
-  console.log('抓取人流資訊中')
+  console.log('抓取人數資訊中')
   try {
     const peoples = []
     const { data } = await axios.get(process.env.GYM_API)
     peoples.push(...data.split(','))
-    console.log(peoples)
     reply(event, peoples)
   } catch (error) {
     event.reply('get error')
@@ -17,7 +16,7 @@ const fetch = async (event) => {
 }
 
 const reply = (event, peoples) => {
-  console.log('傳送人流資訊中')
+  console.log('傳送人數資訊中')
   const placesInfo = [
     {
       name: '游泳池',
@@ -29,17 +28,22 @@ const reply = (event, peoples) => {
     }]
   const bubbles = []
   for (const i in peoples) {
-    bubble.body.contents[0].text = placesInfo[i].name
     bubble.hero.url = placesInfo[i].imgURL
-    if (placesInfo[i].name === '游泳池') bubble.body.contents[1].contents[0].contents[0].text = `${peoples[i]} / 容留 250 人`
-    else bubble.body.contents[1].contents[0].contents[0].text = `${peoples[i]} / 容留 90 人`
+    bubble.body.contents[0].text = placesInfo[i].name
+    if (placesInfo[i].name === '游泳池') {
+      bubble.body.contents[1].contents[0].contents[0].text = `${peoples[i]} / 容留 250 人`
+      bubble.body.contents[1].contents[1].contents[0].width = `${Math.ceil(peoples[i] / 250 * 100)}%`
+    } else {
+      bubble.body.contents[1].contents[0].contents[0].text = `${peoples[i]} / 容留 90 人`
+      bubble.body.contents[1].contents[1].contents[0].width = `${Math.ceil(peoples[i] / 90 * 100)}%`
+    }
     bubbles.push(JSON.parse(JSON.stringify(bubble)))
   }
   event.reply(
     [
       {
         type: 'flex',
-        altText: '目前人流',
+        altText: '目前人數',
         contents: {
           type: 'carousel',
           contents: bubbles

@@ -11,25 +11,8 @@
       width: 2500px;
       height: 836px;
       display: flex;
+      background: #FCFCFC;
     }
-
-    #capture div {
-      width: 50%;
-      height: 100%;
-      background: #63A7C8;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #capture div:nth-child(odd) {
-      background: #63A7C8;
-    }
-
-    /* 
-    #capture div:nth-child(even) {
-      background: #000;
-    } */
 
     button {
       margin: 5px;
@@ -39,8 +22,7 @@
 
 <body>
   <div id="capture">
-    <div><img src="./Group 2.png" alt=""></div>
-    <div><img src="./Group 4546.png" alt=""></div>
+    <img src="../richMenu/richmenu.png">
   </div>
   <button onclick="block_capture()">點我擷取區塊</button>
   <button onclick="printEvent(event)">printEvent</button>
