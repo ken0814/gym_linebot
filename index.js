@@ -6,9 +6,9 @@ import schedule from 'node-schedule'
 import ubike from './controllers/ubike.js'
 // import menu from './controllers/richMenu.js'
 
-schedule.scheduleJob('0 0 * * *', () => {
-  console.log('fetch activity')
+schedule.scheduleJob('0 * * * *', () => {
   activity.fetch()
+  console.log('fetch activity')
 })
 
 activity.fetch()

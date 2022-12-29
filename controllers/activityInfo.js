@@ -17,7 +17,6 @@ const fetch = async () => {
         releaseDate: $(this).find('#my-news').text().slice(0, 10)
       })
     })
-    console.log('fetch activity')
   } catch (error) {
     console.log(error)
   }
@@ -25,6 +24,10 @@ const fetch = async () => {
 
 const reply = (event) => {
   const bubbles = []
+  if (activities.length === 0) {
+    event.reply('伺服器錯誤，請稍後再試')
+    return
+  }
   for (const i in activities) {
     bubble.hero.url = activities[i].img
     bubble.body.contents[0].text = activities[i].name

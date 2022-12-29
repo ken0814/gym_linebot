@@ -10,6 +10,7 @@ const fetch = async (event) => {
     reply(event, info)
   } catch (error) {
     console.log(error)
+    event.reply('伺服器錯誤，請稍後再試')
   }
 }
 

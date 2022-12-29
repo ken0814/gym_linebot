@@ -3,20 +3,18 @@ import axios from 'axios'
 import bubble from '../template/people_bubble_template.js'
 
 const fetch = async (event) => {
-  console.log('抓取人數資訊中')
   try {
     const peoples = []
     const { data } = await axios.get(process.env.GYM_API)
     peoples.push(...data.split(','))
     reply(event, peoples)
   } catch (error) {
-    event.reply('get error')
+    event.reply('伺服器錯誤，請稍後再試')
     console.log(error)
   }
 }
 
 const reply = (event, peoples) => {
-  console.log('傳送人數資訊中')
   const placesInfo = [
     {
       name: '游泳池',
