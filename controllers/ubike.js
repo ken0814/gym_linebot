@@ -5,7 +5,8 @@ const fetch = async (event) => {
   try {
     const { data } = await axios.get('https://data.ntpc.gov.tw/api/datasets/71cd1490-a2df-4198-bef1-318479775e8a/csv?size=300')
     const info = [...data.replace(/"/g, '').split(',')]
-    info.splice(0, 4213)
+    const idx = info.findIndex(item => item === '樹林國民運動中心')
+    info.splice(0, idx + 1)
     info.splice(2)
     reply(event, info)
   } catch (error) {

@@ -14,7 +14,7 @@ export default {
     contents: [
       {
         type: 'text',
-        text: 'Youbike',
+        text: 'Yoübike',
         size: 'md',
         weight: 'bold'
       },
