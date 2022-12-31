@@ -4,7 +4,6 @@ import richMenuTemplate from '../template/richMenu_template.js'
 
 const replyMenu = async () => {
   try {
-    console.log(1234)
     const getconfig = {
       headers: {
         Authorization: `Bearer ${process.env.CHANNEL_ACCESS_TOKEN}`
