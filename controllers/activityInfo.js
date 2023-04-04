@@ -7,7 +7,11 @@ const activities = []
 const fetch = async () => {
   activities.splice(0, activities.length)
   try {
-    const { data } = await axios.get('https://www.ntcslsports.com.tw/')
+    const { data } = await axios.get('https://www.ntcslsports.com.tw/', {
+      headers: {
+        'Accept-Encoding': '*'
+      }
+    })
     const $ = cheerio.load(data)
     $('.ipost').each(function () {
       activities.push({
@@ -36,6 +40,7 @@ const reply = (event) => {
     bubble.body.contents[2].action.text = `前往活動 ${activities[i].name}`
     bubbles.push(JSON.parse(JSON.stringify(bubble)))
   }
+  bubbles.splice(9, bubbles.length)
   event.reply(
     {
       type: 'flex',
